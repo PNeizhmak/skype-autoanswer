@@ -1,13 +1,11 @@
 package com.github.skype.command;
 
+import com.github.skype.util.Properties;
+import com.github.skype.util.Utils;
 import com.skype.ChatMessage;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.util.List;
-import java.util.Random;
 
 /**
  * @author Pavel Neyzhmak
@@ -18,7 +16,7 @@ public class InterrogativeCommand extends AbstractCommand {
 
     {
         try {
-            interrogativeSentences = Files.readAllLines(new File("resources/interrogative.txt").toPath(), Charset.defaultCharset());
+            interrogativeSentences = Utils.readFile(Properties.INTERROGATIVE_RESOURCE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,7 +29,9 @@ public class InterrogativeCommand extends AbstractCommand {
     @Override
     public void execute() throws Exception {
         System.out.println("InterrogativeCommand");
-        final String randomSentence = interrogativeSentences.get(new Random().nextInt(interrogativeSentences.size()));
+        final String randomSentence = Utils.getRandomItemFromList(interrogativeSentences);
         chatMessage.getSender().send(randomSentence);
     }
+
+
 }

@@ -54,7 +54,7 @@ public class AutoAnsweringController {
                 commandToExecute.execute();
             } else {
                 //temporary solution
-                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.EMOTED, received);
+                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.EMOTION, received);
                 commandToExecute.execute();
 
             }

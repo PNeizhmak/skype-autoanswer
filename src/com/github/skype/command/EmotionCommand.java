@@ -5,15 +5,15 @@ import com.skype.ChatMessage;
 /**
  * @author Pavel Neyzhmak
  */
-public class EmotedCommand extends AbstractCommand {
+public class EmotionCommand extends AbstractCommand {
 
-    public EmotedCommand(ChatMessage message) {
+    public EmotionCommand(ChatMessage message) {
         super(message);
     }
 
     @Override
     public void execute() throws Exception {
-        System.out.println("EmotedCommand");
+        System.out.println("EmotionCommand");
         chatMessage.getSender().send(":)");
     }
 }

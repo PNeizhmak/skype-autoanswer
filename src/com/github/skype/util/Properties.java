@@ -9,7 +9,7 @@ public final class Properties {
     }
 
     //commands
-    public static final String EMOTED = "emoted";
+    public static final String EMOTION = "emotion";
     public static final String GREETING = "greeting";
     public static final String INTERROGATIVE = "interrogative";
 
@@ -25,4 +25,10 @@ public final class Properties {
     public static final String EXCLAMATION = "!";
     public static final String DOT = ".";
     public static final String DOT_SPACE = " .";
+
+    //prop file names
+    public static final String INTERROGATIVE_RESOURCE = "interrogative.txt";
+
+    //other
+    public  static final String RESOURCES = "resources/";
 }

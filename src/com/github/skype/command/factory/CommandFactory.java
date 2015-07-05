@@ -1,7 +1,7 @@
 package com.github.skype.command.factory;
 
 import com.github.skype.command.AbstractCommand;
-import com.github.skype.command.EmotedCommand;
+import com.github.skype.command.EmotionCommand;
 import com.github.skype.command.GreetingCommand;
 import com.github.skype.command.InterrogativeCommand;
 import com.skype.ChatMessage;
@@ -23,8 +23,8 @@ public class CommandFactory {
         switch (command) {
             case GREETING:
                 return new GreetingCommand(message);
-            case EMOTED:
-                return new EmotedCommand(message);
+            case EMOTION:
+                return new EmotionCommand(message);
             case INTERROGATIVE:
                 return new InterrogativeCommand(message);
 

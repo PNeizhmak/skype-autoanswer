@@ -11,7 +11,7 @@ import com.skype.ChatMessage;
  */
 public class CommandFactory {
 
-    public static AbstractCommand getCommand(final String requestedCommand, final ChatMessage message) {
+    public static AbstractCommand getCommand(final String requestedCommand, final ChatMessage message, final String incomingText) {
 
         CommandType command;
         try {
@@ -24,7 +24,7 @@ public class CommandFactory {
             case GREETING:
                 return new GreetingCommand(message);
             case EMOTION:
-                return new EmotionCommand(message);
+                return new EmotionCommand(message, incomingText);
             case INTERROGATIVE:
                 return new InterrogativeCommand(message);
 

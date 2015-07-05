@@ -51,14 +51,14 @@ public class AutoAnsweringController {
 
             //todo: proceed according to type
             if (sentenceType.equals(SentenceType.INTERROGATIVE.getType())) {
-                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.INTERROGATIVE, received);
+                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.INTERROGATIVE, received, null);
                 commandToExecute.execute();
             } else if (sentenceType.equals(SentenceType.EMOTION.getType())) {
-                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.EMOTION, received);
+                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.EMOTION, received, incomingText);
                 commandToExecute.execute();
             } else {
                 //temporary solution
-                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.GREETING, received);
+                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.GREETING, received, null);
                 commandToExecute.execute();
 
             }
@@ -77,6 +77,7 @@ public class AutoAnsweringController {
             sentenceType = SentenceType.EXCLAMATORY.getType();
         } else if (incomingText.endsWith(Properties.DOT) || incomingText.endsWith(Properties.DOT_SPACE)) {
             sentenceType = SentenceType.BASIC.getType();
+            //todo: think about emotions
         } else if (Emotions.emotions.contains(incomingText)) {
             sentenceType = SentenceType.EMOTION.getType();
         }

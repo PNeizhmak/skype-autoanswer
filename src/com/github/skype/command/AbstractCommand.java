@@ -9,9 +9,16 @@ public abstract class AbstractCommand {
 
     protected ChatMessage chatMessage;
 
-    public abstract void execute() throws Exception;
+    protected String incomingText;
 
     public AbstractCommand(ChatMessage message) {
         this.chatMessage = message;
     }
+
+    public AbstractCommand(ChatMessage message, String incomingText) {
+        this.chatMessage = message;
+        this.incomingText = incomingText;
+    }
+
+    public abstract void execute() throws Exception;
 }

@@ -67,9 +67,9 @@ public class AutoAnsweringController {
 
         String sentenceType = SentenceType.BASIC.getType();
 
-        if (incomingText.endsWith(Properties.QUESTION)) {
+        if (incomingText.contains(Properties.QUESTION)) {
             sentenceType = SentenceType.INTERROGATIVE.getType();
-        } else if (incomingText.endsWith(Properties.EXCLAMATION)) {
+        } else if (incomingText.contains(Properties.EXCLAMATION)) {
             sentenceType = SentenceType.EXCLAMATORY.getType();
         } else if (incomingText.endsWith(Properties.DOT) || incomingText.endsWith(Properties.DOT_SPACE)) {
             sentenceType = SentenceType.BASIC.getType();

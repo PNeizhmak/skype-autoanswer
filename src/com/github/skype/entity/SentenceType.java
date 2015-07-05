@@ -8,7 +8,8 @@ public enum SentenceType {
     INTERROGATIVE("interrogative"),
     //!
     EXCLAMATORY("exclamatory"),
-    BASIC("basic");
+    BASIC("basic"),
+    EMOTION("emotion");
 
     private final String type;
 

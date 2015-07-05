@@ -2,6 +2,7 @@ package com.github.skype;
 
 import com.github.skype.command.AbstractCommand;
 import com.github.skype.command.factory.CommandFactory;
+import com.github.skype.entity.Emotions;
 import com.github.skype.entity.SentenceType;
 import com.github.skype.util.Properties;
 import com.skype.ChatMessage;
@@ -52,9 +53,12 @@ public class AutoAnsweringController {
             if (sentenceType.equals(SentenceType.INTERROGATIVE.getType())) {
                 AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.INTERROGATIVE, received);
                 commandToExecute.execute();
+            } else if (sentenceType.equals(SentenceType.EMOTION.getType())) {
+                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.EMOTION, received);
+                commandToExecute.execute();
             } else {
                 //temporary solution
-                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.EMOTION, received);
+                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.GREETING, received);
                 commandToExecute.execute();
 
             }
@@ -73,6 +77,8 @@ public class AutoAnsweringController {
             sentenceType = SentenceType.EXCLAMATORY.getType();
         } else if (incomingText.endsWith(Properties.DOT) || incomingText.endsWith(Properties.DOT_SPACE)) {
             sentenceType = SentenceType.BASIC.getType();
+        } else if (Emotions.emotions.contains(incomingText)) {
+            sentenceType = SentenceType.EMOTION.getType();
         }
 
         return sentenceType;

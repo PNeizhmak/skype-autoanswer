@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class InterrogativeCommand extends AbstractCommand {
 
-    private List<String> interrogativeSentences;
+    private static List<String> interrogativeSentences;
 
-    {
+    static {
         try {
             interrogativeSentences = Utils.readFile(Properties.INTERROGATIVE_RESOURCE);
         } catch (IOException e) {

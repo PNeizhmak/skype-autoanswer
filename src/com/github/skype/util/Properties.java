@@ -28,6 +28,7 @@ public final class Properties {
 
     //prop file names
     public static final String INTERROGATIVE_RESOURCE = "interrogative.txt";
+    public static final String EMOTIONS_RESOURCE = "emotions.txt";
 
     //other
     public  static final String RESOURCES = "resources/";

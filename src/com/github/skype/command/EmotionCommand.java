@@ -14,6 +14,6 @@ public class EmotionCommand extends AbstractCommand {
     @Override
     public void execute() throws Exception {
         System.out.println("EmotionCommand");
-        chatMessage.getSender().send(":)");
+        chatMessage.getSender().send("я вижу ты любишь смайлики )");
     }
 }

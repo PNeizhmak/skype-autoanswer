@@ -41,7 +41,7 @@ public class AutoAnsweringController {
         if (type.equals(ChatMessage.Type.SAID)) {
 
             final User sender = received.getSender();
-            final String incomingText = received.getContent();
+            final String incomingText = received.getContent().trim();
 
             System.out.println(sender.getId() + Properties.SAY);
             System.out.println(Properties.SPACE + incomingText);
@@ -49,9 +49,15 @@ public class AutoAnsweringController {
             String sentenceType = analyzeSentenceType(incomingText);
 
             //todo: proceed according to type
+            if (sentenceType.equals(SentenceType.INTERROGATIVE.getType())) {
+                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.INTERROGATIVE, received);
+                commandToExecute.execute();
+            } else {
+                //temporary solution
+                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.EMOTED, received);
+                commandToExecute.execute();
 
-            AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.GREETING, received);
-            commandToExecute.execute();
+            }
 
             System.out.println(Properties.AUTO_ANSWERED);
         }
@@ -59,15 +65,13 @@ public class AutoAnsweringController {
 
     private static String analyzeSentenceType(String incomingText) {
 
-        String sentenceType = null;
+        String sentenceType = SentenceType.BASIC.getType();
 
-        if (incomingText.endsWith("?")) {
+        if (incomingText.endsWith(Properties.QUESTION)) {
             sentenceType = SentenceType.INTERROGATIVE.getType();
-        } else if (incomingText.endsWith("!")) {
+        } else if (incomingText.endsWith(Properties.EXCLAMATION)) {
             sentenceType = SentenceType.EXCLAMATORY.getType();
-        } else if (incomingText.endsWith(" . ") || incomingText.endsWith(".") ||
-                incomingText.endsWith(". ") || incomingText.endsWith(" .") ||
-                incomingText.endsWith(" ") || incomingText.endsWith("")) {
+        } else if (incomingText.endsWith(Properties.DOT) || incomingText.endsWith(Properties.DOT_SPACE)) {
             sentenceType = SentenceType.BASIC.getType();
         }
 

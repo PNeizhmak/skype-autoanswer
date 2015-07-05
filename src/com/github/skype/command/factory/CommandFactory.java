@@ -3,6 +3,7 @@ package com.github.skype.command.factory;
 import com.github.skype.command.AbstractCommand;
 import com.github.skype.command.EmotedCommand;
 import com.github.skype.command.GreetingCommand;
+import com.github.skype.command.InterrogativeCommand;
 import com.skype.ChatMessage;
 
 /**
@@ -24,6 +25,8 @@ public class CommandFactory {
                 return new GreetingCommand(message);
             case EMOTED:
                 return new EmotedCommand(message);
+            case INTERROGATIVE:
+                return new InterrogativeCommand(message);
 
             default:
                 //todo: think about this

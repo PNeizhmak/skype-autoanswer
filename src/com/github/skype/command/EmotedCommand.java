@@ -5,12 +5,10 @@ import com.skype.ChatMessage;
 /**
  * @author Pavel Neyzhmak
  */
-public class EmotedCommand implements AbstractCommand {
-
-    private ChatMessage chatMessage;
+public class EmotedCommand extends AbstractCommand {
 
     public EmotedCommand(ChatMessage message) {
-        this.chatMessage = message;
+        super(message);
     }
 
     @Override

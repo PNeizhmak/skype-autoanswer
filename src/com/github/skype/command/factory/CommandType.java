@@ -6,7 +6,8 @@ package com.github.skype.command.factory;
 public enum CommandType {
 
     EMOTED("emoted"),
-    GREETING("greeting");
+    GREETING("greeting"),
+    INTERROGATIVE("interrogative");
 
     private final String command;
 

@@ -5,12 +5,10 @@ import com.skype.ChatMessage;
 /**
  * @author Pavel Neyzhmak
  */
-public class GreetingCommand implements AbstractCommand {
-
-    private ChatMessage chatMessage;
+public class GreetingCommand extends AbstractCommand {
 
     public GreetingCommand(ChatMessage message) {
-        this.chatMessage = message;
+        super(message);
     }
 
     @Override

@@ -240,6 +240,8 @@ B=|
 (tauri)
 (zilmer)
 (oliver)
+(movember)
+(bartlett)
 (flag:AF)
 (flag:AL)
 (flag:DZ)

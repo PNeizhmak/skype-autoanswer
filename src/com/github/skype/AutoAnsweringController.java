@@ -60,7 +60,6 @@ public class AutoAnsweringController {
                 //temporary solution
                 AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.GREETING, received, null);
                 commandToExecute.execute();
-
             }
 
             System.out.println(Properties.AUTO_ANSWERED);
@@ -69,6 +68,8 @@ public class AutoAnsweringController {
 
     private static String analyzeSentenceType(String incomingText) {
 
+        //todo: add complex sentence type. Ex: [GREETING, EMOTION]
+        //todo: think about dialog topic
         String sentenceType = SentenceType.BASIC.getType();
 
         if (incomingText.contains(Properties.QUESTION)) {

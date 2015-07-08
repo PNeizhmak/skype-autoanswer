@@ -12,6 +12,7 @@ public final class Properties {
     public static final String EMOTION = "emotion";
     public static final String GREETING = "greeting";
     public static final String INTERROGATIVE = "interrogative";
+    public static final String DIRTY = "dirty";
 
     //system msgs
     public static final String START_AUTO_ANSWERING = "Start Auto Answering ...";
@@ -23,12 +24,11 @@ public final class Properties {
     //symbols
     public static final String QUESTION = "?";
     public static final String EXCLAMATION = "!";
-    public static final String DOT = ".";
-    public static final String DOT_SPACE = " .";
 
     //prop file names
     public static final String INTERROGATIVE_RESOURCE = "interrogative.txt";
     public static final String EMOTIONS_RESOURCE = "emotions-symbols.txt";
+    public static final String DIRTIES_RESOURCE = "dirties.txt";
 
     //other
     public  static final String RESOURCES = "resources/";

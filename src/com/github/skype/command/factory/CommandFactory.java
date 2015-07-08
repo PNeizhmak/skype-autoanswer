@@ -1,6 +1,7 @@
 package com.github.skype.command.factory;
 
 import com.github.skype.command.AbstractCommand;
+import com.github.skype.command.DirtyCommand;
 import com.github.skype.command.EmotionCommand;
 import com.github.skype.command.GreetingCommand;
 import com.github.skype.command.InterrogativeCommand;
@@ -27,6 +28,8 @@ public class CommandFactory {
                 return new EmotionCommand(message, incomingText);
             case INTERROGATIVE:
                 return new InterrogativeCommand(message);
+            case DIRTY:
+                return new DirtyCommand(message);
 
             default:
                 //todo: think about this

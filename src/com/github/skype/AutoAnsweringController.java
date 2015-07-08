@@ -2,6 +2,7 @@ package com.github.skype;
 
 import com.github.skype.command.AbstractCommand;
 import com.github.skype.command.factory.CommandFactory;
+import com.github.skype.entity.Dirty;
 import com.github.skype.entity.Emotions;
 import com.github.skype.entity.SentenceType;
 import com.github.skype.util.Properties;
@@ -42,7 +43,7 @@ public class AutoAnsweringController {
         if (type.equals(ChatMessage.Type.SAID)) {
 
             final User sender = received.getSender();
-            final String incomingText = received.getContent().trim();
+            final String incomingText = received.getContent().trim().toLowerCase();
 
             System.out.println(sender.getId() + Properties.SAY);
             System.out.println(Properties.SPACE + incomingText);
@@ -55,6 +56,9 @@ public class AutoAnsweringController {
                 commandToExecute.execute();
             } else if (sentenceType.equals(SentenceType.EMOTION.getType())) {
                 AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.EMOTION, received, incomingText);
+                commandToExecute.execute();
+            } else if (sentenceType.equals(SentenceType.DIRTY.getType())) {
+                AbstractCommand commandToExecute = CommandFactory.getCommand(Properties.DIRTY, received, null);
                 commandToExecute.execute();
             } else {
                 //temporary solution
@@ -71,6 +75,7 @@ public class AutoAnsweringController {
         //todo: add complex sentence type. Ex: [GREETING, EMOTION]
         //todo: think about dialog topic
         String sentenceType = SentenceType.BASIC.getType();
+        detectDirties(incomingText);
 
         if (incomingText.contains(Properties.QUESTION)) {
             sentenceType = SentenceType.INTERROGATIVE.getType();
@@ -79,8 +84,18 @@ public class AutoAnsweringController {
             //todo: think about emotions
         } else if (Emotions.emotions.contains(incomingText)) {
             sentenceType = SentenceType.EMOTION.getType();
+        } else if (!Dirty.dirtiesOccurrence.isEmpty()) {
+            sentenceType = SentenceType.DIRTY.getType();
         }
 
         return sentenceType;
+    }
+
+    private static void detectDirties(String incomingText) {
+        for (String dirty : Dirty.dirties) {
+            if (incomingText.contains(dirty)) {
+                Dirty.dirtiesOccurrence.add(dirty);
+            }
+        }
     }
 }

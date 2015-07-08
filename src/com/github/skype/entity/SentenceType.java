@@ -9,7 +9,8 @@ public enum SentenceType {
     //!
     EXCLAMATORY("exclamatory"),
     BASIC("basic"),
-    EMOTION("emotion");
+    EMOTION("emotion"),
+    DIRTY("dirty");
 
     private final String type;
 

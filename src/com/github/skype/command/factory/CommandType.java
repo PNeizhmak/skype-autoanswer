@@ -7,7 +7,8 @@ public enum CommandType {
 
     EMOTION("emotion"),
     GREETING("greeting"),
-    INTERROGATIVE("interrogative");
+    INTERROGATIVE("interrogative"),
+    DIRTY("dirty");
 
     private final String command;
 

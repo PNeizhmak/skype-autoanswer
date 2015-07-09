@@ -31,5 +31,5 @@ public final class Properties {
     public static final String DIRTIES_RESOURCE = "dirties.txt";
 
     //other
-    public  static final String RESOURCES = "resources/";
+    public  static final String RESOURCES = "src/main/resources/";
 }

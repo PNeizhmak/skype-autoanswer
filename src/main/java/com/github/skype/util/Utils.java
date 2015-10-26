@@ -13,7 +13,7 @@ import java.util.Random;
 public class Utils {
 
     public static List<String> readFile(final String fileName) throws IOException {
-        return Files.readAllLines(new File(Properties.RESOURCES + fileName).toPath(), Charset.defaultCharset());
+        return Files.readAllLines(new File(Properties.RESOURCES + fileName).toPath(), Charset.forName(Properties.UTF_8));
     }
 
     public static String getRandomItemFromList(final List<String> list) {

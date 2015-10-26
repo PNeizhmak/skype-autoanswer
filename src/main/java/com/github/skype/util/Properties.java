@@ -15,6 +15,7 @@ public final class Properties {
     public static final String DIRTY = "dirty";
 
     //system msgs
+    public static final String UTF_8 = "UTF-8";
     public static final String START_AUTO_ANSWERING = "Start Auto Answering ...";
     public static final String AUTO_ANSWERING_STARTED = "Auto Answering started successfully !";
     public static final String SAY = " say:";
